@@ -1,53 +1,97 @@
 class RomanNumeralConverter:
-    # Initialize the map letters and corresponding values
-    def __init__(self):
-        self.roman_numeral_map = (('M', 1000),
-                                 ('CM', 900),
-                                 ('D', 500),
-                                 ('CD', 400),
-                                 ('C', 100),
-                                 ('XC', 90),
-                                 ('L', 50),
-                                 ('XL', 40),
-                                 ('X', 10),
-                                 ('IX', 9),
-                                 ('V', 5),
-                                 ('IV', 4),
-                                 ('I', 1))
+    """
+    Class for converting integers to Roman numerals and vice versa.
+    """
 
-    def to_roman(self, n): # To convert a symbol to numerical form. Roman Numerals do not exceed 3,999
-        if n > 3_999:
-            raise ValueError("Number should be less than or equal to 3,999 as this is the largest representation of numbers in Roman Numerals")
+    ROMAN_NUMERAL_MAP = (
+        ('M', 1000),
+        ('CM', 900),
+        ('D', 500),
+        ('CD', 400),
+        ('C', 100),
+        ('XC', 90),
+        ('L', 50),
+        ('XL', 40),
+        ('X', 10),
+        ('IX', 9),
+        ('V', 5),
+        ('IV', 4),
+        ('I', 1)
+    )
+
+    @classmethod
+    def to_roman(cls, n: int) -> str:
+        """
+        Convert an integer to Roman numeral.
+        
+        Args:
+        - n: an integer between 1 and 3999.
+        
+        Returns:
+        - A string representation of the Roman numeral.
+        
+        Raises:
+        - ValueError: if the input integer is not between 1 and 3999.
+        """
+        if not 1 <= n <= 3999:
+            raise ValueError(f"The input integer must be between 1 and 3999. Got {n}.")
+
         result = ''
-        for numeral, integer in self.roman_numeral_map:
+        for numeral, integer in cls.ROMAN_NUMERAL_MAP:
             while n >= integer:
                 result += numeral
                 n -= integer
         return result
 
+    @classmethod
+    def from_roman(cls, s: str) -> int:
+        """
+        Convert a Roman numeral to an integer.
+        
+        Args:
+        - s: a string representation of a Roman numeral.
+        
+        Returns:
+        - An integer representation of the Roman numeral.
+        
+        Raises:
+        - ValueError: if the input string is not a valid Roman numeral.
+        """
+        invalid_numeral_combinations = ['IIII', 'XXXX', 'CCCC', 'MMMM', 'VV', 'LL', 'DD']
+        if not all(x in 'MDCLXVI' for x in s) or len(s) > 15 or any(x in s for x in invalid_numeral_combinations):
+            raise ValueError("Invalid Roman numeral.")
 
-    def from_roman(self, s): # To convert from symbol to numerical
-        invalid_numeral_combination = ['IIII','XXXX','CCCC','MMMM','VV','LL','DD'] # list of a few incorrect combinations. Could be incomplete.
-        if not all(x in 'MDCLXVI' for x in s) or len(s)>15 or any(x in s for x in invalid_numeral_combination):
-            raise ValueError("Invalid Roman Number - Does not exist")
         result = 0
         index = 0
-        for numeral, integer in self.roman_numeral_map:
+        for numeral, integer in cls.ROMAN_NUMERAL_MAP:
             while s[index:index+len(numeral)] == numeral:
                 result += integer
                 index += len(numeral)
-        if result > 3999:
-            raise ValueError("Number should be less than or equal to 3999")
         return result
 
+def main():
+    while True:
+        try:
+            print("Enter 1 to convert from an integer to a Roman numeral.")
+            print("Enter 2 to convert from a Roman numeral to an integer.")
+            user_choice = int(input("What would you like to do? "))
+            if user_choice == 1:
+                user_input = int(input("Enter a number between 1 and 3999: "))
+                if user_input <= 0 or user_input > 3999:
+                    raise ValueError
+                print("Roman numeral equivalent:", converter.to_roman(user_input))
+            elif user_choice == 2:
+                user_input = input("Enter a Roman numeral: ")
+                print("Integer equivalent:", converter.from_roman(user_input))
+            else:
+                raise ValueError
+        except ValueError:
+            print("Invalid input. Please try again.")
 
-converter = RomanNumeralConverter()
-
-print(converter.to_roman(3006))
-print(converter.from_roman('MMMVIC'))
+converter = RomanNumeralConverter
+main()
 
 """
-Feel free to comment any errors in my code
-Or if anything could be improve
-Happy to take in any advice
+Thanks ahead for any feedback
+Feel free to leave a like or comment any bugs or changes that should be made
 """
