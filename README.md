@@ -1,37 +1,40 @@
 # Roman Numeral Converter
 
-This program is a Python implementation of a Roman numeral converter, which can convert integers to Roman numerals and vice versa.
+A Python program for converting integers to Roman numerals and vice versa.
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/your-username/roman-numeral-converter.git`
+2. Install the required dependencies: `pip install -r requirements.txt`
 
 ## Usage
 
-To use the program, simply run the `main()` function. The program will prompt the user to choose between two conversion options:
+To use the program, run `python converter.py` in your terminal. This will launch the command-line version of the program.
 
-- Convert an integer to a Roman numeral
-- Convert a Roman numeral to an integer
+Alternatively, you can run the GUI version of the program by running `python gui.py` in your terminal. This will launch a graphical user interface (GUI) that allows you to enter input and view output.
 
-After selecting an option, the user will be prompted to enter the number or numeral they would like to convert. If the input is valid, the program will output the converted value. If the input is not valid, the program will display an error message and prompt the user to try again.
+### Example usage
 
-## Implementation
+#### Command-line version
 
-The program is implemented using a class called `RomanNumeralConverter`. The class contains two class methods:
+$ python converter.py
+Enter a number or a Roman numeral: 123
+The Roman numeral for 123 is CXXIII.
 
-- `to_roman(cls, n: int) -> str`: Convert an integer to a Roman numeral
-- `from_roman(cls, s: str) -> int`: Convert a Roman numeral to an integer
+#### GUI version
 
-The `to_roman` method uses a predefined tuple `ROMAN_NUMERAL_MAP` to convert the input integer to a Roman numeral. The method first checks if the input integer is within the valid range (1 to 3999). If the input is not valid, the method raises a `ValueError` exception. Otherwise, the method iterates over the `ROMAN_NUMERAL_MAP` tuple and adds the corresponding numeral to the result string until the input integer is fully converted.
+$ python gui.py
 
-The `from_roman` method does the opposite conversion, i.e., it converts a Roman numeral to an integer. The method first checks if the input string is a valid Roman numeral. If the input is not valid, the method raises a `ValueError` exception. Otherwise, the method iterates over the `ROMAN_NUMERAL_MAP` tuple and adds the corresponding integer to the result until the input string is fully converted.
+![Screenshot of the GUI](RNG.png)
 
-The `main` function handles the user input and output. It repeatedly prompts the user to choose an option and enter a valid input until the user chooses to exit.
+## Credits
 
-## Limitations
+This program was written by [Your Name](https://github.com/your-username).
 
-The program has some limitations, such as:
+The Roman numeral conversion algorithm was adapted from [this post](https://www.geeksforgeeks.org/converting-decimal-number-lying-between-1-to-3999-to-roman-numerals/) on GeeksforGeeks.
 
-- It only supports Roman numerals up to 3999 which is all that Roman Numerals actually support.
-- It does not support lowercase Roman numerals.
-- It does not support the overline notation for Roman numerals.
+The GUI was built using the [Tkinter](https://docs.python.org/3/library/tk.html) module in Python.
 
-## Acknowledgments
+## License
 
-The implementation of the `RomanNumeralConverter` class is inspired by the algorithm described in the [Roman numeral Wikipedia page](https://en.wikipedia.org/wiki/Roman_numerals).
+This program is licensed under the [MIT License](LICENSE).
