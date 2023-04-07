@@ -87,11 +87,3 @@ def main():
                 raise ValueError
         except ValueError:
             print("Invalid input. Please try again.")
-
-converter = RomanNumeralConverter
-main()
-
-"""
-Thanks ahead for any feedback
-Feel free to leave a like or comment any bugs or changes that should be made
-"""
