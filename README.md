@@ -5,7 +5,7 @@ A Python program for converting integers to Roman numerals and vice versa.
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/your-username/roman-numeral-converter.git`
-2. Install the required dependencies: `pip install -r requirements.txt`
+2. Install the required dependencies: `None`
 
 ## Usage
 
