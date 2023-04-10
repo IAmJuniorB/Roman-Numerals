@@ -29,7 +29,7 @@ $ python gui.py
 
 ## Credits
 
-This program was written by [Your Name](https://github.com/your-username).
+This program was written by [Joe Bonfanti Jr](https://github.com/IAmJuniorB).
 
 The Roman numeral conversion algorithm was adapted from [this post](https://www.geeksforgeeks.org/converting-decimal-number-lying-between-1-to-3999-to-roman-numerals/) on GeeksforGeeks.
 
