@@ -11,19 +11,19 @@ A Python program for converting integers to Roman numerals and vice versa.
 
 To use the program, run `python converter.py` in your terminal. This will launch the command-line version of the program.
 
-Alternatively, you can run the GUI version of the program by running `python gui.py` in your terminal. This will launch a graphical user interface (GUI) that allows you to enter input and view output.
+Alternatively, you can run the GUI version of the program by running `python rngui.py` in your terminal. This will launch a graphical user interface (GUI) that allows you to enter input and view output.
 
 ### Example usage
 
 #### Command-line version
 
-$ python converter.py
+$ python RomanNumerals.py
 Enter a number or a Roman numeral: 123
 The Roman numeral for 123 is CXXIII.
 
 #### GUI version
 
-$ python gui.py
+$ python rngui.py
 
 ![Screenshot of the GUI](RNG.png)
 
